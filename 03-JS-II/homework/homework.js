@@ -18,7 +18,7 @@ function mayoriaDeEdad(edad) {
   //Determinar si la persona según su edad puede ingresar a un evento.
   //Si tiene 18 años ó más, devolver --> "Allowed"
   //Si es menor, devolver --> "Not allowed"
-  if (edad > 18) {
+  if (edad >= 18) {
     return 'Allowed'
   } else {
     return 'Not allowed'
@@ -47,14 +47,23 @@ function saludo(idioma) {
   // Si "idioma" es "ingles", devuelve "Hello!"
   // Si "idioma" no es ninguno de los anteiores o es `undefined` devuelve "Hola!"
   // Tu código:
-  if (idioma == 'aleman') {
+  // if (idioma == 'aleman') {
+  //   return 'Guten Tag!';
+  // } else if (idioma == 'mandarin') {
+  //   return 'Ni Hao!';
+  // } else if (idioma == 'ingles') {
+  //   return 'Hello!'
+  // } else {
+  //   return undefined
+  // }
+  if (idioma === 'aleman') {
     return 'Guten Tag!';
-  } else if (idioma == 'mandarin') {
+  } else if (idioma === 'mandarin') {
     return 'Ni Hao!';
-  } else if (idioma == 'ingles') {
-    return 'Hello!'
+  } else if (idioma === 'ingles') {
+    return 'Hello!';
   } else {
-    return undefined
+    return 'Hola!';
   }
 }
 
@@ -76,23 +85,35 @@ function colors(color) {
   //   return 'This is orange'
   // }
 
+  // switch (color) {
+  //   case "blue":
+  //     return 'This is blue';
+
+
+  //   case "red":
+  //     return 'This is red';
+
+  //   case "green":
+  //     'This is green';
+  //     break;
+
+  //   case "orange":
+  //     return 'This is orange';
+
+  //   default:
+  //     return 'Color not found';
+  // }
   switch (color) {
     case "blue":
-      return 'This is blue';
-
-
+      return "This is blue";
     case "red":
-      return 'This is red';
-
+      return "This is red";
     case "green":
-      'This is green';
-      break;
-
+      return "This is green";
     case "orange":
-      return 'This is orange';
-
+      return "This is orange";
     default:
-      return 'Color not found';
+      return "Color not found";
   }
 
 }
@@ -127,9 +148,10 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-  if (numero % 1 === 0) {
-    return true
-  }
+  // if (numero % 1 === 0) {
+  //   return true
+  // }
+  return numero % 1 === 0;
 }
 
 function fizzBuzz(numero) {
@@ -137,9 +159,14 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
-  if (numero % 3 == 0) return 'fizz';
-  if (numero % 5 == 0) return 'buzz';
-  if (numero % 3 == 0 && numero % 5 == 0) return 'fizzbuzz';
+  // if (numero % 3 == 0) return 'fizz';
+  // if (numero % 5 == 0) return 'buzz';
+  // if (numero % 3 == 0 && numero % 5 == 0) return 'fizzbuzz';
+  // return numero;
+  if (numero % 15 === 0) return 'fizzbuzz';
+  if (numero % 3 === 0) return 'fizz';
+  if (numero % 5 === 0) return 'buzz';
+  return numero;
 
 
 }
@@ -156,18 +183,34 @@ function operadoresLogicos(num1, num2, num3) {
   // if(num3 > num1 && num3 > num2 ) return ++num3;
   // if(num1 == 0 || num2 == 0 || num3 == 0 ) return 'Error';
 
-  if (num1 > 0 && num1 > num2 && num1 > 3) {
-    return 'Número 1 es mayor y positivo';
-  } else if (num1 < 0 || num2 < 0 || num3 < 0) {
-    return 'Hay negativos';
-  } else if (num3 > num1 && num3 > num2) {
-    num3++
-    return num3
-  } else if (num1 == 0 || num2 == 0 || num3 == 0) {
-    return 'Error';
-  } else {
+  // if (num1 > 0 && num1 > num2 && num1 > 3) {
+  //   return 'Número 1 es mayor y positivo';
+  // } else if (num1 < 0 || num2 < 0 || num3 < 0) {
+  //   return 'Hay negativos';
+  // } else if (num3 > num1 && num3 > num2) {
+  //   num3++
+  //   return num3
+  // } else if (num1 == 0 || num2 == 0 || num3 == 0) {
+  //   return 'Error';
+  // } else {
+  //   return false;
+  // }
+  if (num1 < 0 || num2 < 0 || num3 < 0) {
+    return "Hay negativos";
+  }
+  else if (num1 === 0 || num2 === 0 || num3 === 0) {
+    return "Error";
+  }
+  else if (num1 > 0 && num1 > num2 && num1 > num3) {
+    return "Número 1 es mayor y positivo";
+  }
+  else if (num3 > num1 && num3 > num2) {
+    return num3 + 1;
+  }
+  else {
     return false;
   }
+
 }
 
 function esPrimo(numero) {
